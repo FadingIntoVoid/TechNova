@@ -1,0 +1,399 @@
+:root {
+    --cor-roxo: rgba(128, 0, 128, 1);
+    --cor-azul: rgba(0, 102, 204, 1);
+    --cor-fundo: rgba(245, 245, 245, 1);
+    --cor-texto: rgba(33, 33, 33, 1);
+    --cor-branco: rgba(255, 255, 255, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--cor-texto);
+    background: var(--cor-fundo);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(90deg, rgba(128,0,128,1), rgba(0,102,204,1));
+    background-size: 200% 200%;
+    animation: gradientAnim 8s ease infinite;
+    color: var(--cor-branco);
+    position: sticky;
+    top: 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+@keyframes gradientAnim {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#logo h1 {
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+nav a {
+    color: var(--cor-branco);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: white;
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+#hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 80vh;
+    background: linear-gradient(rgba(128, 0, 128, 0.7), rgba(128, 0, 128, 0.7)), url('./img/hero-image.jpg') center/cover no-repeat;
+    color: var(--cor-branco);
+    padding: 0 1rem;
+}
+
+#hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+#hero h2, #hero p {
+    text-align: center;
+    line-height: 1.6;
+}
+
+#menu-btn {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--cor-branco);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        background: linear-gradient(90deg, var(--cor-roxo), var(--cor-azul));
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
+        border-radius: 5px;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    #menu-btn {
+        display: block;
+    }
+}
+
+
+.btn {
+    background-color: var(--cor-azul);
+    color: var(--cor-branco);
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--cor-roxo);
+}
+
+.btn, button {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after, button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.4s;
+}
+
+.btn:hover::after, button:hover::after {
+    left: 0;
+}
+
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#sobre {
+    padding: 4rem 2rem;
+}
+
+.sobre-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.sobre-texto {
+    max-width: 600px;
+}
+
+.sobre-texto h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: var(--cor-roxo);
+}
+
+.sobre-texto p {
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 1.15rem;
+    color: var(--cor-texto);
+}
+
+.sobre-imagem img {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#servicos {
+    padding: 4rem 2rem;
+    background-color: var(--cor-fundo);
+    text-align: center;
+}
+
+#servicos h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--cor-roxo);
+}
+
+#servicos h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--cor-roxo);
+}
+
+.servico h3, .servico p {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+
+.servico {
+    display: inline-block;
+    width: 300px;
+    margin: 1rem;
+    padding: 1.5rem;
+    background: var(--cor-branco);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.servico:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.servico img {
+    width: 80px;
+    margin-bottom: 12px;
+}
+
+.servico h3 {
+    margin-bottom: 0.5rem;
+    color: var(--cor-roxo);
+}
+
+.servico p {
+    font-size: 1rem;
+}
+
+#contato {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+#contato h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--cor-roxo);
+}
+
+#contato h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--cor-roxo);
+}
+
+#contato form input,
+#contato form textarea {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#contato form button {
+    font-size: 1rem;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input, textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    resize: none;
+}
+
+button, .btn {
+    background-color: var(--cor-azul);
+    color: var(--cor-branco);
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+button:hover, .btn:hover {
+    background-color: var(--cor-roxo);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+button:active, .btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+footer {
+    background: linear-gradient(90deg, var(--cor-roxo), var(--cor-azul));
+    color: var(--cor-branco);
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 1rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: var(--cor-branco);
+    text-decoration: none;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+.social-links a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-links a img:hover {
+    transform: scale(1.2);
+    filter: brightness(1.3);
+}
+
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .servico {
+        width: 90%;
+        margin: 1rem auto;
+    }
+
+    #hero h2 {
+        font-size: 2rem;
+    }
+
+    #hero p {
+        font-size: 1rem;
+    }
+}
